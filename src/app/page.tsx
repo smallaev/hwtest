@@ -3,31 +3,9 @@ import { destinations } from "@/data";
 import { useEffect, useState } from "react";
 import { LocalStorageKeys, Trip, TripDestinationsMap } from "@/app/trip/helpers";
 import { PlusIcon } from '@heroicons/react/24/solid';
-import TripTile from "@/components/TripTile";
+import TripTile, { loadTripDestinations, loadTrips } from "@/components/TripTile";
 import DraggableDestinationTile from "@/components/DraggableDestinationTile";
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
-
-export const loadTrips = () => {
-    let tripsArr: Trip[] = [];
-  
-    const tripsStr = window.localStorage.getItem(LocalStorageKeys.Trips);  
-    if (tripsStr) {
-      tripsArr = JSON.parse(tripsStr);
-    }
-  
-    return tripsArr;
-}
-
-export const loadTripDestinations = () => {
-    let tripsDestinationsObj: TripDestinationsMap = {};
-  
-    const itemsStr = window.localStorage.getItem(LocalStorageKeys.TripsDestinations);
-    if (itemsStr) {
-      tripsDestinationsObj = JSON.parse(itemsStr);
-    }
-  
-    return tripsDestinationsObj;
-  }
 
 export default function Home() {
     const [trips, setTrips] = useState<Trip[]>([]);

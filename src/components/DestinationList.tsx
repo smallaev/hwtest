@@ -1,10 +1,9 @@
 "use client"
 
 import { LocalStorageKeys } from "@/app/trip/helpers";
-import { getDestinationsForTrip } from "./TripTile";
+import { getDestinationsForTrip, loadTripDestinations } from "./TripTile";
 import DestinationTile from "./DestinationTile";
 import { useEffect, useState } from "react";
-import { loadTripDestinations } from "../app/page";
 
 // [ { tripId: { destId: [user ids] } } ]
 export type DestinationVotes = number[];
