@@ -1,6 +1,5 @@
 "use client"
-import { LocalStorageKeys } from "@/app/trip/helpers";
-import { Destination } from "@/data";
+import { Destination, LocalStorageKeys } from "@/data";
 import Image from "next/image";
 import { DestinationVotes, TripsDestinationsVotesMap } from "./DestinationList";
 import { ArrowUpCircleIcon } from "@heroicons/react/24/outline";

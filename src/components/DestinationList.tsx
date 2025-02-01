@@ -1,10 +1,9 @@
 "use client"
 
-import { LocalStorageKeys } from "@/app/trip/helpers";
 import { getDestinationsForTrip, loadTripDestinations } from "./TripTile";
 import DestinationTile from "./DestinationTile";
 import { useEffect, useState } from "react";
-import { Destination } from "@/data";
+import { Destination, LocalStorageKeys } from "@/data";
 
 // [ { tripId: { destId: [user ids] } } ]
 export type DestinationVotes = number[];
@@ -46,7 +45,7 @@ const DestinationList: React.FC<{
                 })
             :
             <>
-                This trip is empty. To add destinations, drag them from the home page into the trip
+                To add destinations to this trip, drag them from the home page into the trip
             </>
         }
         </div>

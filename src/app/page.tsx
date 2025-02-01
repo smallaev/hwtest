@@ -1,11 +1,13 @@
 "use client"
-import { destinations } from "@/data";
+import { LocalStorageKeys, Trip, TripDestinationsMap, destinations } from "@/data";
 import { useEffect, useState } from "react";
-import { LocalStorageKeys, Trip, TripDestinationsMap } from "@/app/trip/helpers";
 import { PlusIcon } from '@heroicons/react/24/solid';
 import TripTile, { loadTripDestinations, loadTrips } from "@/components/TripTile";
 import DraggableDestinationTile from "@/components/DraggableDestinationTile";
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
+import { Open_Sans } from 'next/font/google';
+
+const font = Open_Sans({ subsets: ['latin'] })
 
 export default function Home() {
     const [trips, setTrips] = useState<Trip[]>([]);
@@ -55,10 +57,10 @@ export default function Home() {
 
     return (
         <DndContext id="unique-dnd-context-id" onDragEnd={handleDragEnd}>
-            <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+            <div className={font.className + " min-h-screen p-8 pb-20 gap-16 sm:p-20"}>
                 <main>
-                    <h2 className="text-2xl font-bold mb-[1em] text-center">Destinations</h2>
-                    <section className="flex sm:justify-center gap-8 items-center flex-wrap mb-[2em]">
+                    <h2 className="text-2xl font-bold mb-[1em] text-center sm:text-left">Saved Destinations</h2>
+                    <section className="flex justify-center sm:justify-start gap-8 items-center flex-wrap mb-[2em]">
                         {Object.values(destinations).map(destination => {
                             return <DraggableDestinationTile
                                 destination={destination}
@@ -67,8 +69,8 @@ export default function Home() {
                         })}
                     </section>
                     
-                    <h2 className="text-2xl font-bold mb-[1em] text-center">My trips</h2>
-                    <section className="flex justify-center gap-8 row-start-2 flex-wrap">
+                    <h2 className="text-2xl font-bold mt-[3em] mb-[1em] text-center sm:text-left">My Trips</h2>
+                    <section className="flex justify-center sm:justify-start gap-8 row-start-2 flex-wrap">
                         {trips.map(trip => {
                             return <TripTile
                                 trip={trip}
@@ -78,9 +80,13 @@ export default function Home() {
                         })}
                         <div>
                             <button 
-                                className="flex justify-center items-center w-[300px] h-[180px] border rounded border-gray-400"
+                                className="flex flex-col justify-center items-center w-[300px] h-[180px] border rounded-lg border-gray-200 bg-neutral-100"
                                 onClick={addTrip}
-                            ><PlusIcon className="size-6 text-gray-500" />Add a new trip</button>
+                            >
+                                <PlusIcon 
+                                    className="size-10 text-gray-500" 
+                                /> <span className="font-semibold mt-[1em]">Add a new trip</span>
+                            </button>
                         </div>
                     </section>
                 </main>

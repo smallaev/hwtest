@@ -3,8 +3,20 @@ export type Destination = {
   title: string,
   imgSrc: string
 }
-
 export type Destinations = Record<number, Destination>;
+
+export type Trip = {
+  id: number,
+  name: string
+}
+
+export enum LocalStorageKeys {
+  Trips = 'hw-test:trips',
+  TripsDestinations = 'hw-test:trips-destinations',
+  TripsDestinationsVotes = 'hw-test:trips-destinations-votes',
+};
+
+export type TripDestinationsMap = { [key: number]: number[] };
 
 export const destinations: Destinations = {
     1: {

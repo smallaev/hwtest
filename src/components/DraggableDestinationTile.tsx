@@ -11,9 +11,10 @@ const DraggableDestinationTile: React.FC<{
         id: destination.id,
     });
     const style = transform ? {
-        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+        transform: `rotate(3deg) translate3d(${transform.x}px, ${transform.y}px, 0)`,
         zIndex: 5,
-        touchAction: 'none'
+        touchAction: 'none',
+        boxShadow: '0 0 8px rgba(1,1,1,0.5)'
     } : { 
         touchAction: 'none'
     };
@@ -22,6 +23,7 @@ const DraggableDestinationTile: React.FC<{
         ref={setNodeRef}
         {...listeners}
         {...attributes}
+        className="rounded-xl"
         style={style}
     >
         <DestinationTile destination={destination} />

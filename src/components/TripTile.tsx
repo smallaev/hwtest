@@ -1,5 +1,4 @@
-import { LocalStorageKeys, Trip, TripDestinationsMap } from "@/app/trip/helpers";
-import { Destination, destinations } from "@/data";
+import { Destination, LocalStorageKeys, Trip, TripDestinationsMap, destinations } from "@/data";
 import { useDroppable } from '@dnd-kit/core';
 import Image from "next/image";
 import Link from "next/link";
@@ -46,15 +45,15 @@ const TripTile: React.FC<{
         id: trip.id,
     });
 
-    const classes = 'relative z-0 overflow-hidden flex items-center p-[2em] w-[300px] h-[180px] border rounded-lg ' + (isOver ? 'border-green-200 border-[3px]' : 'border-gray-300');
+    const classes = 'relative z-0 bg-neutral-100 overflow-hidden flex items-center p-[2em] w-[300px] h-[180px] border rounded-lg ' + (isOver ? 'border-green-200 border-[3px]' : 'border-gray-300');
 
-    let left = -20;
-    let top = 0;
-    let rotate = -25;
+    let left = -30;
+    let top = -5;
+    let rotate = -5;
     const destinationsForTrip = getDestinationsForTrip(trip.id, tripDestinations)
         .map(dest => {
             left += 20;
-            top += 5;
+            top += 10;
             rotate += 10;
             return <Image 
                 src={dest.imgSrc} 
@@ -79,7 +78,7 @@ const TripTile: React.FC<{
         >
             { destinationsForTrip.length > 0 ? 
                 destinationsForTrip : 
-                'This trip is empty. Drag destinations here to add them' 
+                'Drag destinations here to add them to the trip' 
             }
         </div>
         <h3 className="font-bold mt-[0.8em]">
