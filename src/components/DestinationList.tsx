@@ -4,6 +4,7 @@ import { getDestinationsForTrip, loadTripDestinations } from "./TripTile";
 import DestinationTile from "./DestinationTile";
 import { useEffect, useState } from "react";
 import { Destination, LocalStorageKeys } from "@/data";
+import { MapIcon } from "@heroicons/react/24/outline";
 
 // [ { tripId: { destId: [user ids] } } ]
 export type DestinationVotes = number[];
@@ -32,7 +33,7 @@ const DestinationList: React.FC<{
     }, []);
 
     return <>
-        <div className="flex justify-center gap-8 flex-wrap lg:flex-nowrap">
+        <div className="flex justify-center sm:justify-start gap-8 flex-wrap lg:flex-nowrap">
             { destinations.length > 0 ?
                 destinations.map(destination => {
                     return <DestinationTile
@@ -49,6 +50,10 @@ const DestinationList: React.FC<{
             </>
         }
         </div>
+        <div className="mt-[3em] pt-[3em] border-t">
+            <button className="text-lg border rounded-lg flex items-center gap-3 p-[0.8em]"><MapIcon className="size-8" />Edit Trip</button>
+        </div>
+
     </>
 
 }

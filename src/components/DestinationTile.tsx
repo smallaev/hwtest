@@ -62,7 +62,7 @@ const DestinationTile: React.FC<{
 
     const votes = tripId ? getVotesForTripDestination(tripId, destination.id) : null;
     const hasUserVoted = votes ? votes.indexOf(userId) >= 0 : false; 
-    const votedClass = hasUserVoted ? 'font-bold' : 'font-normal'
+    const votedClass = hasUserVoted ? 'font-bold bg-neutral-200' : 'font-normal bg-white'
 
     return <div className="w-[300px] border rounded-lg p-[0.8em] bg-white">
         <Image
@@ -73,7 +73,7 @@ const DestinationTile: React.FC<{
             height={180}
             priority
         />
-        <h3 className="font-bold mt-[0.5em] mb-[0.5em]" >{ destination.title }</h3>
+        <h3 className="font-semibold mt-[0.5em] mb-[0.5em]" >{ destination.title }</h3>
         { votes ? <button 
             className={`rounded p-[5px] border w-[60px] flex justify-center items-center ${votedClass}`}
             onClick={handleVote}>

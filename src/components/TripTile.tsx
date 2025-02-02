@@ -1,5 +1,6 @@
 import { Destination, LocalStorageKeys, Trip, TripDestinationsMap, destinations } from "@/data";
 import { useDroppable } from '@dnd-kit/core';
+import { CursorArrowRaysIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,16 +37,18 @@ export const getDestinationsForTrip = (tripId: number, tripsDestinations: TripDe
     return destArr;
 }
 
+
 const TripTile: React.FC<{
     trip: Trip,
-    tripDestinations: TripDestinationsMap
+    tripDestinations: TripDestinationsMap,
+    removeTrip: (tripId: number) => void
 }> = ({ trip, tripDestinations }) => {
 
     const { isOver, setNodeRef } = useDroppable({
         id: trip.id,
     });
 
-    const classes = 'relative z-0 bg-neutral-100 overflow-hidden flex items-center p-[2em] w-[300px] h-[180px] border rounded-lg ' + (isOver ? 'border-green-200 border-[3px]' : 'border-gray-300');
+    const classes = 'relative z-0 bg-neutral-100 overflow-hidden flex items-center justify-center p-[2em] w-[300px] h-[180px] border rounded-lg ' + (isOver ? 'border-[lightblue] border-[3px]' : 'border-gray-200');
 
     let left = -30;
     let top = -5;
@@ -56,7 +59,7 @@ const TripTile: React.FC<{
             top += 10;
             rotate += 10;
             return <Image 
-                src={dest.imgSrc} 
+                src={dest.imgSrc}
                 alt={dest.title}
                 key={dest.id}
                 width={300}
@@ -78,10 +81,10 @@ const TripTile: React.FC<{
         >
             { destinationsForTrip.length > 0 ? 
                 destinationsForTrip : 
-                'Drag destinations here to add them to the trip' 
+                <><CursorArrowRaysIcon className="size-8" />Drag destinations here</>
             }
         </div>
-        <h3 className="font-bold mt-[0.8em]">
+        <h3 className="font-semibold mt-[0.8em]">
             {trip.name}
         </h3>
     </Link>
