@@ -73,7 +73,7 @@ export default function Home() {
                         })}
                         <div>
                             <button 
-                                className="flex sm:flex-col justify-center items-center w-[300px] h-[80] sm:h-[180px] border rounded-lg border-gray-200 bg-neutral-100"
+                                className="flex sm:flex-col justify-center items-center w-[300px] h-[80] sm:h-[180px] border rounded-lg border-gray-200 bg-gray-50 p-[0.8em]"
                                 onClick={addTrip}
                             >
                                 <PlusIcon 
