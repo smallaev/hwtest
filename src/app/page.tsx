@@ -73,12 +73,12 @@ export default function Home() {
                         })}
                         <div>
                             <button 
-                                className="flex flex-col justify-center items-center w-[300px] h-[180px] border rounded-lg border-gray-200 bg-neutral-100"
+                                className="flex sm:flex-col justify-center items-center w-[300px] h-[80] sm:h-[180px] border rounded-lg border-gray-200 bg-neutral-100"
                                 onClick={addTrip}
                             >
                                 <PlusIcon 
-                                    className="size-10 text-gray-500" 
-                                /> <span className="mt-[1em]">Add a new trip</span>
+                                    className="size-8 text-gray-500" 
+                                /> <span className="sm:mt-[1em]">Add a new trip</span>
                             </button>
                         </div>
                     </section>

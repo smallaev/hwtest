@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,4 +13,18 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.trip-img {
+  transition: margin-left .4s;
+}
+
+.trip-tile:hover .trip-img:nth-of-type(1) {
+  margin-left: 0.4em;
+}
+.trip-tile:hover .trip-img:nth-of-type(2) {
+  margin-left: 0.6em;
+}
+.trip-tile:hover .trip-img:nth-of-type(3) {
+  margin-left: 0.8em;
 }

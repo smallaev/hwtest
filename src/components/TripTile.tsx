@@ -48,7 +48,7 @@ const TripTile: React.FC<{
         id: trip.id,
     });
 
-    const classes = 'relative z-0 bg-neutral-100 overflow-hidden flex items-center justify-center p-[2em] w-[300px] h-[180px] border rounded-lg ' + (isOver ? 'border-[lightblue] border-[3px]' : 'border-gray-200');
+    const classes = 'relative z-0 bg-neutral-100 overflow-hidden flex items-center justify-center p-[2em] w-[300px] h-[180px] border rounded-lg  trip-tile ' + (isOver ? 'border-[lightblue] border-[3px]' : 'border-gray-200');
 
     let left = -30;
     let top = -5;
@@ -64,7 +64,7 @@ const TripTile: React.FC<{
                 key={dest.id}
                 width={300}
                 height={200}
-                className="absolute rounded-lg transform border-[2px] border-white"
+                className="absolute rounded-lg transform border-[2px] border-white trip-img"
                 style={{
                     left: left + 'px',
                     top: top + 'px',

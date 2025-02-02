@@ -64,7 +64,7 @@ const DestinationTile: React.FC<{
     const hasUserVoted = votes ? votes.indexOf(userId) >= 0 : false; 
     const votedClass = hasUserVoted ? 'font-bold bg-neutral-200' : 'font-normal bg-white'
 
-    return <div className="w-[300px] border rounded-lg p-[0.8em] bg-white">
+    return <div className="w-[240px] sm:w-[300px] border rounded-lg p-[0.8em] bg-white">
         <Image
             className="rounded-lg"
             src={destination.imgSrc}
