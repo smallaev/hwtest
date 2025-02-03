@@ -1,9 +1,6 @@
-import Link from "next/link";
-import { GlobeAltIcon, HomeIcon, TicketIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import logo from '../../public/logo.svg';
 import Menu from "./Menu";
-
 
 const Sidebar = () => {
     return <section className="w-[240px] border-r flex flex-col h-[100vh] fixed ml-[-240px] lg:ml-[0]">
