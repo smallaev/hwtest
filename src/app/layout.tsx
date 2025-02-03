@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Link from "next/link";
-import { Bars3Icon, GlobeAltIcon, HomeIcon, MagnifyingGlassIcon, TicketIcon } from "@heroicons/react/24/outline";
-import logo from '../../public/logo.svg';
-import Image from "next/image";
 import { Open_Sans } from 'next/font/google';
+import Menu from "@/components/Sidebar";
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -26,46 +25,9 @@ export default function RootLayout({
       <body
         className={`${openSans.className} antialiased`}
       >
-        <header className="p-[2em] border-b flex justify-between lg:hidden">
-          <Bars3Icon className="size-8" />
-          <Image 
-            src={logo}
-            width={110}
-            height={40}
-            alt="logo"
-          />
-          <MagnifyingGlassIcon className="size-8" />
-        </header>
+        <Header />
         <div className="flex">
-          <section className="w-[240px] border-r flex flex-col h-[100vh] fixed ml-[-240px] lg:ml-[0]">
-            <div className="ml-[auto] mr-[auto] mb-[4em] pl-[1em] pt-[2em] w-[93%]">
-              <Image 
-                src={logo}
-                width={110}
-                height={40}
-                alt="logo"
-              />
-            </div>
-            <div>
-              <ul className="w-[93%] m-[auto] text-[98%]">
-                <li>
-                  <Link href='/' className="flex items-center gap-2.5 p-[0.8em]">
-                    <GlobeAltIcon className="size-7 text-gray-300" /> Destinations
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/' className="flex items-center gap-2.5 p-[0.8em]">
-                    <HomeIcon className="size-7 text-gray-300" /> Hotels
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/' className="flex items-center gap-2.5 bg-[var(--hw-brand-color)] p-[0.8em] rounded-lg font-semibold">
-                    <TicketIcon className="size-7 text-black" />My Trips
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </section>
+          <Sidebar />
           <section className="ml-[0] lg:ml-[240px] sm:w-[calc(100%-240px)]">
             {children}
           </section>
