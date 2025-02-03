@@ -33,7 +33,7 @@ const DestinationList: React.FC<{
     }, []);
 
     return <>
-        <div className="flex justify-center sm:justify-start gap-8 flex-wrap lg:flex-nowrap">
+        <div className="flex justify-center sm:justify-start gap-8 flex-wrap lg:flex-nowrap w-[calc(100% - 240px)]">
             { destinations.length > 0 ?
                 destinations.map(destination => {
                     return <DestinationTile
