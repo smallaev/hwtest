@@ -66,7 +66,7 @@ export default function RootLayout({
               </ul>
             </div>
           </section>
-          <section className="ml-[0] lg:ml-[240px]">
+          <section className="ml-[0] lg:ml-[240px] sm:w-[calc(100%-240px)]">
             {children}
           </section>
         </div>
